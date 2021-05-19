@@ -30,8 +30,12 @@ Route::group(['middleware'=>['auth.shopify']], function () {
     Route::get('/schedulers', 'SchedulerController@scheduler_index')->name('schedulers');
 
     Route::get('/delete-scheduler{id}', 'SchedulerController@scheduler_delete')->name('delete-scheduler');
+    Route::get('/scheduler-edit{id}', 'SchedulerController@scheduler_edit')->name('scheduler-edit');
+    Route::post('/edit-scheduler-save{id}', 'SchedulerController@edit_scheduler_save')->name('edit-scheduler-save');
+
     Route::post('/scheduler-save', 'SchedulerController@scheduler_save')->name('scheduler-save');
     Route::post('scheduler-url-mapped-field', 'SchedulerController@scheduler_url_mapped_field')->name('scheduler-url-mapped-field');
+    Route::post('edited-scheduler-url-mapped-field{id}', 'SchedulerController@edited_scheduler_url_mapped_field')->name('edited-scheduler-url-mapped-field');
 //    Route::get('/import', 'ImportController@getImport')->name('import');
 //    Route::post('/import_parse', 'ImportController@parseImport')->name('import_parse');
 //    Route::post('/import_process', 'ImportController@processImport')->name('import_process');

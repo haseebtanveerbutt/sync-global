@@ -67,8 +67,9 @@
                         </ul>
                     </div>
                 @endif
+
                 <div class="card">
-                    <form id="csv-mapped-field-form" action="{{route('scheduler-url-mapped-field')}}" method="post">
+                    <form id="csv-mapped-field-form" action="{{route('edited-scheduler-url-mapped-field',$schedule_id)}}" method="post">
                         @csrf
                         <input hidden value="{{$user_id}}" name="user_id">
                         <input hidden value="{{$schedule_id}}" name="schedule_id">
@@ -82,6 +83,7 @@
                             <div class="row">
                                 <div class="col-md-12 header-main">
                                     @foreach($csv_headers as $key => $csv_header)
+
                                         <div class="d-flex mb-4 justify-content-between align-items-center suggestion-main-div">
                                             <div class="w-25">
                                                 <label for="#">{{$key+(1).'. '.$csv_header}}</label>
@@ -90,7 +92,7 @@
                                             <div class="w-75">
                                                 <select name="shopify_fields[]" class="form-control shopify-select shopify-select-div-{{$key}}" aria-invalid="false">
                                                     {{--                                               <option value="metafields_global_title_tag">Metafields global title tag</option><option value="metafields_global_descriptio_tag">Metafields global description tag</option><option value="metafield">Metafield</option><option value="collection">Collection</option><option value="option_name_1">Option name 1</option><option value="option_name_2">Option name 2</option><option value="option_name_3">Option name 3</option>  <option value="template_suffix">Template suffix</option> <option value="variant_metafield">- Variant Metafield</option> --}}
-                                                    <option value="" disabled="">Select shopify product attribute...</option><option value="ignore" selected>Ignore</option><option value="description">Description (Body HTML)</option><option value="handle">Handle</option><option value="image">Image</option><option value="multiple_images">Multiple Images</option><option value="product_type">Product type</option><option value="published_scope">Published scope</option><option value="published">Published</option><option value="tags">Tags</option><option value="title">Title</option><option value="vendor">Vendor</option><option value="variant_barcode">- Variant Barcode</option><option value="variant_compare_at_price">- Variant Compare at price</option><option value="variant_fulfillment_service">- Variant Fulfillment service</option><option value="variant_inventory_management">- Variant Inventory management</option><option value="variant_inventory_policy">- Variant Inventory policy</option><option value="variant_inventory_quantity">- Variant Inventory quantity</option><option value="variant_cost_per_item">- Variant - Cost per item</option><option value="variant_option1_value">- Variant Option 1 Value</option><option value="variant_option2_value">- Variant Option 2 Value</option><option value="variant_option3_value">- Variant Option 3 Value</option><option value="variant_position">- Variant Position</option><option value="variant_price">- Variant Price</option><option value="variant_requires_shipping">- Variant Requires shipping</option><option value="variant_sku">- Variant Sku</option><option value="variant_taxable">- Variant Taxable</option><option value="variant_title">- Variant Title</option><option value="variant_weight">- Variant Weight</option><option value="variant_weight_unit">- Variant Weight unit</option>
+                                                    <option value="" disabled="">Select shopify product attribute...</option><option @if($shopify_fields[$key]== 'ignore') selected @endif value="ignore" selected>Ignore</option><option @if($shopify_fields[$key] == 'description') selected @endif value="description">Description (Body HTML)</option><option @if($shopify_fields[$key] == 'handle') selected @endif value="handle">Handle</option><option @if($shopify_fields[$key] == 'image') selected @endif value="image">Image</option><option @if($shopify_fields[$key] == 'multiple_images') selected @endif value="multiple_images">Multiple Images</option><option @if($shopify_fields[$key] == 'product_type') selected @endif value="product_type">Product type</option><option @if($shopify_fields[$key] == 'published_scope') selected @endif value="published_scope">Published scope</option><option @if($shopify_fields[$key] == 'published') selected @endif value="published">Published</option><option @if($shopify_fields[$key] == 'tags') selected @endif value="tags">Tags</option><option @if($shopify_fields[$key] == 'title') selected @endif value="title">Title</option><option @if($shopify_fields[$key] == 'vendor') selected @endif value="vendor">Vendor</option><option @if($shopify_fields[$key] == 'variant_barcode') selected @endif value="variant_barcode">- Variant Barcode</option><option @if($shopify_fields[$key] == 'variant_compare_at_price') selected @endif value="variant_compare_at_price">- Variant Compare at price</option><option @if($shopify_fields[$key] == 'variant_fulfillment_service') selected @endif value="variant_fulfillment_service">- Variant Fulfillment service</option><option @if($shopify_fields[$key] == 'variant_inventory_management') selected @endif value="variant_inventory_management">- Variant Inventory management</option><option @if($shopify_fields[$key] == 'variant_inventory_policy') selected @endif value="variant_inventory_policy">- Variant Inventory policy</option><option @if($shopify_fields[$key] == 'variant_inventory_quantity') selected @endif value="variant_inventory_quantity">- Variant Inventory quantity</option><option @if($shopify_fields[$key] == 'variant_cost_per_item') selected @endif value="variant_cost_per_item">- Variant - Cost per item</option><option @if($shopify_fields[$key] == 'variant_option1_value') selected @endif value="variant_option1_value">- Variant Option 1 Value</option><option @if($shopify_fields[$key] == 'variant_option2_value') selected @endif value="variant_option2_value">- Variant Option 2 Value</option><option @if($shopify_fields[$key] == 'variant_option3_value') selected @endif value="variant_option3_value">- Variant Option 3 Value</option><option @if($shopify_fields[$key] == 'variant_position') selected @endif value="variant_position">- Variant Position</option><option @if($shopify_fields[$key] == 'variant_price') selected @endif value="variant_price">- Variant Price</option><option @if($shopify_fields[$key] == 'variant_requires_shipping') selected @endif value="variant_requires_shipping">- Variant Requires shipping</option><option @if($shopify_fields[$key] == 'variant_sku') selected @endif value="variant_sku">- Variant Sku</option><option @if($shopify_fields[$key] == 'variant_taxable') selected @endif value="variant_taxable">- Variant Taxable</option><option @if($shopify_fields[$key] == 'variant_title') selected @endif value="variant_title">- Variant Title</option><option @if($shopify_fields[$key] == 'variant_weight') selected @endif value="variant_weight">- Variant Weight</option><option @if($shopify_fields[$key] == 'variant_weight_unit') selected @endif value="variant_weight_unit">- Variant Weight unit</option>
                                                 </select>
                                                 <div class="suggestion-div-{{$key}} mt-3">
                                                     <b style="font-size: 14px;">Suggestion:</b>
@@ -130,12 +132,13 @@
     <script>
 
         $(document).ready(function() {
-            $("button .loader-span").find(".loader").css('display', 'none')
+
             var shopify_select_option = $("select.shopify-select-div-0 option").map(function() {return $(this).val();}).get();
             var csv_filed = $("input.csv-filed").map(function() {return $(this).val();}).get();
             $('.mapping-alert-msg').css('display', 'none');
 
             // import loader
+            $("button .loader-span").find(".loader").css('display', 'none')
             $("#csv-mapped-field-form").submit(function () {
                 $("button .loader-span").find(".loader").css('display', 'block')
             });

@@ -3,26 +3,23 @@
 namespace App\Console\Commands;
 
 use App\ErrorLog;
-use App\Jobs\SchedulerJob;
-use App\Scheduler;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 
-class SchedulerCron extends Command
+class DemoCron extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'scheduler:daily';
+    protected $signature = 'demo:cron';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Scheduler cron job to import products from csv url';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -44,15 +41,5 @@ class SchedulerCron extends Command
         $new = new ErrorLog();
         $new->message = "testing testing";
         $new->save();
-//        $schedulers=Scheduler::get();
-//        $start = Carbon::now();
-//
-//        foreach ($schedulers as $scheduler) {
-//            $job = new SchedulerJob($scheduler);
-//            $job->delay($start->addSeconds(30));
-//
-//            dispatch($job);
-//        }
-
     }
 }

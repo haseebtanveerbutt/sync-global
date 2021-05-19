@@ -53,7 +53,7 @@
 
                                         <td>
                                             <div class="btn-group btn-group-sm float-right" role="group" aria-label="Basic example">
-{{--                                                <a  href="{{$}}"   class="btn btn-sm btn-primary edit-button" >Edit</a>--}}
+                                                <a  href="{{route('scheduler-edit', $scheduler->id)}}"   class="btn btn-sm btn-primary edit-button" >Edit</a>
                                                 {{--                                            <a href="{{Route('campaign-published', $campaign->id)}}"><button type="submit" class="btn btn-sm btn-success ">Published</button></a>--}}
                                                 <a href="{{Route('delete-scheduler', $scheduler->id)}}"><button type="submit" class="btn btn-sm btn-danger DeleteBtn">Delete</button></a>
                                             </div>

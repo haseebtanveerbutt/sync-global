@@ -37,6 +37,10 @@ class UserController extends Controller
     public function csv_upload(Request $request)
     {
 //        dd($request->csv_file);
+        $request->validate([
+            'csv_file' => 'required|mimes:csv,txt'
+        ]);
+
         $image = $request->file('csv_file');
         $destinationPath = 'import-csv/';
         $filename = now()->format('YmdHi') . str_replace([' ', '(', ')'], '-', $image->getClientOriginalName());
@@ -59,6 +63,7 @@ class UserController extends Controller
 
     public function csv_mapped_field(Request $request)
     {
+
         $csv_headers = null;
         $csv_items = [];
         if (($handle = fopen($request->file_path, 'r')) !== false) {
@@ -120,6 +125,7 @@ class UserController extends Controller
 
     public function url_mapped_field(Request $request)
     {
+
         $csv_headers = null;
         $csv_items = [];
 

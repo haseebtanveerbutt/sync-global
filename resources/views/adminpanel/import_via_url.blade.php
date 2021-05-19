@@ -14,8 +14,9 @@
                         </ul>
                     </div>
                 @endif
-                <div class="card">
-                    <form id="" action="{{route('import-via-url')}}" enctype="multipart/form-data" method="POST">
+                    <div class="card csv-form-main">
+                        <div class="csv-error-msg"></div>
+                    <form  class="save-scheduler" action="{{route('import-via-url')}}" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="card-header d-flex justify-content-between align-items-center bg-white pb-1">
                             <h5>Import via URL</h5>
@@ -31,7 +32,7 @@
 {{--                                    </div>--}}
                                     <div class="form-group">
                                         <label for="#">URL Access Details</label>
-                                        <input required name="import_via_url" placeholder="https://example.com/import/products.csv" type="text" class="form-control">
+                                        <input required name="import_via_url" placeholder="https://example.com/import/products.csv" type="text" class="form-control csv-url">
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +57,15 @@
     <script>
 
         $(document).ready(function() {
+            $('form.save-scheduler').submit(function (e) {
+                var csv_url = $('.csv-url').val();
 
+                var csv_file_check = csv_url.endsWith('.csv');
+                if(csv_file_check == false){
+                    $('.csv-form-main .csv-error-msg').html(`<div style="padding: 5px 10px;" class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i> File type must be 'CSV'.<a href="#"  class="close" data-dismiss="alert" onclick="$(this).parent().hide();" aria-label="close">&times;</a></div>`)
+                    e.preventDefault();
+                }
+            });
         });
 
     </script>
