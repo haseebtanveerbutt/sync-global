@@ -14,7 +14,7 @@
             <div class="col-md-6 pl-3 pt-2 m-auto" style="margin: auto;">
                 <div class="card" >
                 <form action="{{route('import-data-info-page')}}" method="get">
-                    @csrf
+                    @sessionToken
                     <div class="card-header" style="background: white;">
                         <div class="card-header" style="background: white;">
                             <div class="row ">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="card-body ">
                         <div class="d-flex justify-content-end">
-                            <a href="{{route('user-dashboard')}}"  class="btn btn-white mr-2">Cancel</a>
+                            <a href="{{route('home')}}"  class="btn btn-white mr-2">Cancel</a>
                             <button type="submit" class="btn btn-primary btn-lg">Next</button>
                         </div>
                     </div>

@@ -69,7 +69,7 @@
                 @endif
                 <div class="card">
                     <form id="csv-mapped-field-form" action="{{route('scheduler-url-mapped-field')}}" method="post">
-                        @csrf
+                        @sessionToken
                         <input hidden value="{{$user_id}}" name="user_id">
                         <input hidden value="{{$schedule_id}}" name="schedule_id">
                         <input hidden value="{{$file_path}}" name="file_path">
@@ -106,7 +106,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-end">
-                                <a href="{{route('user-dashboard')}}"  class="btn btn-white mr-2">Cancel</a>
+                                <a href="{{route('home')}}"  class="btn btn-white mr-2">Cancel</a>
                                 <button type="submit" class="btn btn-primary btn-lg import-button">
                                     <div class="d-flex align-items-center ">
                                         <span class="loader-span mr-2">

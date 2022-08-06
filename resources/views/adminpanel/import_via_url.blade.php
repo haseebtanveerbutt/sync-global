@@ -17,7 +17,7 @@
                     <div class="card csv-form-main">
                         <div class="csv-error-msg"></div>
                     <form  class="save-scheduler" action="{{route('import-via-url')}}" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        @sessionToken
                         <div class="card-header d-flex justify-content-between align-items-center bg-white pb-1">
                             <h5>Import via URL</h5>
                         </div>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-end">
-                                <a href="{{route('user-dashboard')}}"  class="btn btn-white mr-2">Cancel</a>
+                                <a href="{{route('home')}}"  class="btn btn-white mr-2">Cancel</a>
                                 <button type="submit" class="btn btn-primary btn-lg">Next</button>
                             </div>
                         </div>

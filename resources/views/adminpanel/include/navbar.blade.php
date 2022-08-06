@@ -13,7 +13,7 @@
 {{--</nav>--}}
 
 <nav class="navbar navbar-expand-lg " style="background: #202e78;">
-    <a  style="margin-left: 10px;" class="navbar-brand" href="{{route('user-dashboard')}}">Sync-Product</a>
+    <a  style="margin-left: 10px;" class="navbar-brand" href="{{route('home')}}">Sync-Product</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,7 +25,7 @@
 {{--                    <a class="nav-link" href="{{Route('reports')}}">Reports<span class="sr-only"></span></a>--}}
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{Route('user-dashboard')}}">Home<span class="sr-only"></span></a>
+                    <a class="nav-link" href="{{Route('home')}}">Home<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{Route('schedulers-list')}}">Schedulers<span class="sr-only"></span></a>

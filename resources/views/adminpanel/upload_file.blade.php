@@ -16,7 +16,7 @@
                 @endif
                 <div class="card">
                     <form id="" action="{{route('csv-upload')}}" enctype="multipart/form-data" method="POST">
-                        @csrf
+                        @sessionToken
                         <div class="card-header d-flex justify-content-between align-items-center bg-white pb-1">
                             <h5>Upload File</h5>
                         </div>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-end">
-                                <a href="{{route('user-dashboard')}}"  class="btn btn-white mr-2">Cancel</a>
+                                <a href="{{route('home')}}"  class="btn btn-white mr-2">Cancel</a>
                                 <button type="submit" class="btn btn-primary btn-lg">Next</button>
                             </div>
                         </div>
